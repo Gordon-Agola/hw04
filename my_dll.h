@@ -322,19 +322,6 @@ void free_dll(dll_t *t)
     free(l);
 }
 
-// Helper function to print the DLL (for debugging)
-void print_dll(dll_t *l)
-{
-    if (l == NULL)
-        return;
 
-    node_t *current = l->head;
-    while (current != NULL)
-    {
-        printf("%d ", current->data);
-        current = current->next;
-    }
-    printf("\n");
-}
 
 #endif
