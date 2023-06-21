@@ -43,10 +43,6 @@ typedef struct DLL
 // Returns NULL if we could not allocate memory.
 dll_t *create_dll()
 {
-    // Modify the body of this function as needed.
-    dll_t *myDLL = NULL;
-    
-
     // TODO: Implement me!!
     dll_t *myDLL = malloc(sizeof(dll_t));
     if (myDLL != NULL)
@@ -141,23 +137,23 @@ if (l == NULL)
 int dll_pop_front(dll_t *t)
 {
     // TODO: Implement me!!
-    if (l == NULL)
+    if (t == NULL)
         return -1;
-    if (l->count == 0)
+    if (t->count == 0)
         return 0;
 
-    int item = l->head->data;
-    node_t *temp = l->head;
+    int item = t->head->data;
+    node_t *temp = t->head;
 
-    l->head = l->head->next;
-    if (l->head != NULL)
-        l->head->previous = NULL;
+    t->head = t->head->next;
+    if (t->head != NULL)
+        t->head->previous = NULL;
 
-    if (temp == l->tail)
-        l->tail = NULL;
+    if (temp == t->tail)
+        t->tail = NULL;
 
     free(temp);
-    l->count--;
+    t->count--;
     return item;
 
     // Note: This line is a 'filler' so the code compiles.
@@ -167,7 +163,7 @@ int dll_pop_front(dll_t *t)
 // Returns a -1 if the DLL is NULL.
 // Returns 0 on failure, i.e. there is noting to pop from the list.
 // Assume no negative numbers in the list or the number zero.
-int dll_pop_back(dll_t *t)
+int dll_pop_back(dll_t *l)
 {
     // TODO: Implement me!!
     if (l == NULL)
@@ -292,7 +288,7 @@ int dll_remove(dll_t *l, int pos)
 // DLL Size
 // Returns -1 if the DLL is NULL.
 // Queries the current size of a DLL
-int dll_size(dll_t *t)
+int dll_size(dll_t *l)
 {
     // TODO: Implement me!!
     if (l == NULL)
@@ -305,7 +301,7 @@ int dll_size(dll_t *t)
 // Free DLL
 // Removes a DLL and all of its elements from memory.
 // This should be called before the program terminates.
-void free_dll(dll_t *t)
+void free_dll(dll_t *l)
 {
     // TODO: Implement me!!
     if (l == NULL)
